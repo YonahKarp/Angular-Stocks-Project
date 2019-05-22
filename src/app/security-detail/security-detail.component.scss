@@ -1,0 +1,30 @@
+.ib{
+    display: inline-block;
+}
+
+.block{display: block}
+
+.details{
+    padding: 15px;
+
+    .inputContainer{
+        padding-right: 15px;
+        margin-bottom: 5px;
+    }
+}
+.actions{
+    padding: 15px;
+    border-top: 1px solid black;
+    .cancelSave{
+        width: 40%;
+    }
+
+    .button{
+        cursor: pointer;
+    }
+}
+
+.showAdd .delete{
+    visibility: hidden;
+    pointer-events: none;
+}

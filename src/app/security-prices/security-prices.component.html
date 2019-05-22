@@ -1,0 +1,34 @@
+<div class="prices">
+    <p>
+      Price
+    </p>
+    <div class="flex" *ngFor="let price of security.price; index as i">
+        <div>
+          {{price.date.toLocaleDateString('en-us')}}
+        </div>
+        <div>
+          {{price.endDayPrice}}
+        </div>
+    
+        <div (click)="onEdit(i)">
+          Edit
+        </div>
+        <div (click)="onRemove(i)">x</div>
+    </div>
+    <div class="add">
+      <span (click)="onAdd()">+ Add</span>
+      <div *ngIf="showAdd">
+          <form class="{{modalType}}" novalidate (ngSubmit)="onSubmit(priceForm)" [formGroup]="priceForm">
+            <input type="date" placeholder="date" formControlName="date">
+            <input type="number" placeholder="price" formControlName="endDayPrice">
+            <button type="submit" class="button" [disabled]="priceForm.invalid">Save</button>
+          </form>
+
+      </div>
+    </div>
+</div>
+<div class="actions">
+  <div class="right close" (click)="modalHandler()">Close</div>
+  <div class="clearfix"></div>
+</div>
+

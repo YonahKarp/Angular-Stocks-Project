@@ -1,0 +1,35 @@
+<div class="securities">
+    <h2>Securities</h2>
+    <ul class="securitiesList">
+		<li *ngFor="let security of securities"
+			
+    		>
+			<h3>{{security.name}}</h3>
+			<div class="flex securityDetails">
+				<div class="flex securityInfo">
+					<span>{{security.ISIN}}</span>
+					<span>{{security.country}}</span>
+					<span class="undeline" (click)="openPriceModal(security)">price</span>
+				</div>
+				
+				<span class="undeline" (click)="openEditModal(security)">Edit</span>
+			</div>
+		</li>
+	</ul>
+	<div class="addBtn"  (click)="openAddModal()">
+		Add
+	</div>
+</div>
+<div class="modal" [ngClass]="modalClass">
+	<div class="overlay" (click)="closeModal()"></div>
+	
+	<app-security-detail class="modalContent " 
+		(newSecurity)="updateSecurities($event)"
+		(deleteSecurity)="deleteSecurity($event)"
+		[security]="selectedSecurity" [modalHandler]="closeModal" [modalType]="modalClass">
+	</app-security-detail>
+
+	<app-security-prices class="modalContent securityprices" 
+		[security]="selectedSecurity" [modalHandler]="closeModal">
+	</app-security-prices>
+</div>

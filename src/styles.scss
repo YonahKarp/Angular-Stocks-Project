@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */
+
+*{
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+
+h3,h4,h5{
+    margin: 0;
+    font-weight: 400;
+}
+.hide{display: none;}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.right{float: right;}
+.clearfix{clear: both;}
+
+
+button {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    text-transform: none;
+    background: none;
+    -webkit-appearance: none;
+    border: none;
+}
+
+select{
+    background: white;
+    border-radius: 0 !important;
+    width: 130px;
+}

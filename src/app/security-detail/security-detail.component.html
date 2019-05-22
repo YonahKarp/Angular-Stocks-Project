@@ -1,0 +1,39 @@
+<form class="{{modalType}}" novalidate (ngSubmit)="onSubmit(securityForm)" [formGroup]="securityForm">
+
+	<div class="details">
+		<div>
+			<span *ngIf="security.name">Edit</span> 
+			Security:
+			<span>{{security.name}}</span> 
+		</div>
+
+			
+		<label class="inputContainer ib">
+			<div>Name</div>
+			<input type="text" placeholder="name" formControlName="name">
+		</label>
+
+
+		<label class="inputContainer ib">
+			<div>ISIN</div>
+			<input type="text" placeholder="ISIN" formControlName="ISIN">
+		</label>
+
+		<label class="inputContainer block">
+			<div>Country</div>
+			<select formControlName="country">
+				<option *ngFor="let country of countries">{{country}}</option>
+			</select>
+		</label>
+
+	</div>
+	<div class="actions flex">
+		<div class="button delete" (click)="onDelete()">
+			Delete
+		</div>
+		<div class="cancelSave flex">
+			<span class="button" (click)="onCancel()">Cancel</span>
+			<button type="submit" class="button" [disabled]="securityForm.invalid">Save</button>
+		</div>
+	</div>
+</form>

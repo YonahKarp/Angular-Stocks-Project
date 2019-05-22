@@ -1,0 +1,96 @@
+.securities{
+    width: 90%;
+    min-width: 360px;
+    margin: 3% auto;
+}
+
+.securitiesList{
+    list-style: none;
+    padding: 0;
+
+    li {
+        margin: 10px 0;
+        padding: 15px;
+        border: 1px solid black;
+
+        .undeline{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    
+    .securityDetails{
+        font-size: 12px;
+
+        .securityInfo{
+            width: 60%;
+
+        }
+    }
+}
+
+.addBtn{
+    padding: 8px 25px;
+    border: solid 1px black;
+    display: inline-block;
+    cursor: pointer;
+
+    &:active{
+        background: lightgray;
+    }
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    .overlay{
+        background: rgba(0,0,0, .5);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    &.showAdd, &.showEdit, &.showPrice{
+        display: flex;
+
+        .modalContent{
+            animation: slideDown .5s ease-out;
+        }
+    }
+
+    .modalContent{
+        display: none;
+        position: relative;
+        z-index: 10;
+
+        border: 1px solid black;
+        background: white;
+    }
+
+    &.showAdd, &.showEdit{
+        app-security-detail.modalContent{
+            display: block
+        }
+    }
+
+    &.showPrice{
+        app-security-prices.modalContent{
+            display: block
+        }
+    }
+}
+
+@keyframes slideDown{
+    from {transform: translateY(-75vh)}
+    to {transform: translateY(0);}
+}
+
